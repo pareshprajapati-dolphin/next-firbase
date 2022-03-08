@@ -6,11 +6,178 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+}
+
+.header-toogle {
+  color: #4723d9;
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+.logout {
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+.sidebar-is-open {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 100vh;
+  background-color: #141c28;
+  transition: all 0.5s;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.nav_logo,
+.nav_link {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  color: #fafafa;
+}
+
+.nav_logo {
+  margin-bottom: 2rem;
+}
+.nav_link {
+  position: relative;
+
+  margin-bottom: 1.5rem;
+  transition: 0.3s;
+}
+.nav_link > a {
+  color: #fafafa;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.nav_logo-icon {
+  font-size: 1.25rem;
+  color: #fafafa;
+}
+.nav_name {
+  color: #fafafa;
+  font-weight: 700;
+  padding: 20px;
+  text-decoration: none !important;
+}
+.nav_logo-name {
+  color: #afa5d9;
+  font-weight: 700;
+}
+
+.nav_link {
+  position: relative;
+  color: #afa5d9;
+  transition: all 0.5s;
+}
+
+.nav_link:hover {
+  background: #afa5d9;
+}
+
+.active {
+  color: #fafafa;
+  text-decoration: #fafafa;
+}
+
+.nav_icon {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+.sidebar {
+  right: 30%;
+  width: calc(68px + 156px);
+  transition: all 0.5s;
+  background-color: #141c28;
+}
+
+.menu-close-icon {
+  visibility: hidden;
+}
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 32px;
+  background-color: #f7f6fb;
+}
+.content {
+  padding: 20px;
+  margin-left: 0;
+  height: 100vh;
+  width: 100%;
+  max-height: 100vh;
+  overflow-x: hidden;
+}
+
+.continue {
+  height: 48px;
+  font-size: 13px;
+  background-color: #4723d9;
+  border: none;
+}
+
+.card {
+  background: transparent;
+  background-image: url("https://images.pexels.com/photos/5775309/pexels-photo-5775309.jpeg?cs=srgb&dl=pexels-disha-sheta-5775309.jpg&fm=jpg");
+  background-size: cover;
+}
+
+@media (max-width: 575.99px) {
+  .content.is-open {
+    margin-left: 100%;
+  }
+
+  .sidebar-is-open {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1rem 0 0;
+  }
+  .menu-close-icon {
+    visibility: visible;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+  .sidebar {
+    width: 0px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .content.is-open {
+    margin-left: 100%;
+  }
+
+  .sidebar-is-open {
+    right: 30%;
+    left: 0;
+    width: calc(68px + 156px);
+  }
+
+  .sidebar {
+    width: 0px;
+  }
 }

@@ -1,7 +1,21 @@
-import '../styles/globals.css'
+import Head from "next/head";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import { RouteGuard } from "../components/routerGuard";
+import "../styles/globals.css";
+
+function App({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <title>Next.js 11 - Basic HTTP Authentication Example</title>
+      </Head>
+
+      <RouteGuard>
+        <Component {...pageProps} />
+      </RouteGuard>
+    </>
+  );
 }
 
-export default MyApp
+export default App;
