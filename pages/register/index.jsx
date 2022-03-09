@@ -2,6 +2,9 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import styles from "../login/login.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+
 // import { app } from "../../components/config/firebase";
 // import {
 //   getAuth,
@@ -10,6 +13,7 @@ import styles from "../login/login.module.css";
 //   signInWithPopup,
 // } from "firebase/auth";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Register() {
   const {
@@ -19,6 +23,7 @@ export default function Register() {
     watch,
   } = useForm({});
   const router = useRouter();
+
   // const auth = getAuth();
 
   // const googleProvider = new GoogleAuthProvider();
@@ -64,10 +69,11 @@ export default function Register() {
         className="d-flex justify-content-center align-items-center text-light"
         style={{ height: "100vh" }}
       >
-        <div className={styles.card}>
-          <div className="p-3 d-flex align-items-center justify-content-center ">
-            <h5>Login </h5>
+        <div className="col-sm-6 col-md-4 col-lg-3 login-box">
+          <div className="p-2 d-flex align-items-center justify-content-center ">
+            <h5>Create new Account </h5>
           </div>
+          <hr />
           <div className="p-3 px-4 py-4">
             <form onSubmit={handleSubmit(RegisterData)}>
               <div className="form-group mb-3">
@@ -111,36 +117,31 @@ export default function Register() {
                   <span className={styles.error}>Invalid Email</span>
                 )}
               </div>
-              <div className=" mb-3">
+
+              <div className="form-group mb-3">
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
-                  autoComplete="true"
                   className="form-control"
-                  name="password"
                   type={passwordShow ? "text" : "password"}
+                  {...register("password", {
+                    required: true,
+                  })}
                   placeholder="password"
-                  {...register("password", { required: true, minLength: 6 })}
                 />
                 <span
                   className={styles.icon}
                   onClick={() => setPasswordShow(!passwordShow)}
                 >
                   {passwordShow ? (
-                    <i className="fas fa-eye" />
+                    <FontAwesomeIcon icon={faEye} />
                   ) : (
-                    <i className="fas fa-eye-slash" />
+                    <FontAwesomeIcon icon={faEyeSlash} />
                   )}
                 </span>
-
-                {errors.password && errors.password.type === "required" && (
-                  <span className={styles.error}> password is required</span>
-                )}
-                {errors.password && errors.password.type === "minLength" && (
-                  <span className={styles.error}>
-                    Password must have at least 6 characters
-                  </span>
+                {errors.password && (
+                  <span className={styles.error}>password is required</span>
                 )}
               </div>
 
@@ -171,17 +172,12 @@ export default function Register() {
                     <span className={styles.error}>passwords do not match</span>
                   )}
               </div>
-              <button
-                className="btn btn-primary"
-                style={{ marginTop: "10px" }}
-                type="submit"
-              >
-                Submit
+
+              <button className="btn btn-primary btn-block w-100 mb-3">
+                Continue
               </button>
               <button
-                type="button"
-                style={{ marginTop: "10px", marginLeft: "5px" }}
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-block w-100"
                 onClick={() => {
                   router.push("/login");
                 }}
@@ -189,10 +185,16 @@ export default function Register() {
                 cancel
               </button>
             </form>
-            <div className="mt-3">
-              <button className="btn btn-primary" onClick={signUpGoogle}>
+
+            {/* <button className="btn btn-primary" onClick={signUpGoogle}>
                 Signup with Google
-              </button>
+              </button> */}
+            <hr />
+            <div className="p-3 d-flex flex-row justify-content-center align-items-center ">
+              <span>already member? </span>{" "}
+              <Link className="ml-2" href="/login">
+                <a style={{ marginLeft: "10px", color: "blue" }}> Sign In</a>
+              </Link>
             </div>
           </div>
         </div>

@@ -13,9 +13,9 @@ export default function Header({ toggleSidebar }) {
 
   return (
     <>
-      <div className="navbar shadow-sm p-3 bg-white rounded" expand="md">
+      <div className="navbar shadow-sm bg-white rounded" expand="md">
         <button className="header-toogle" onClick={toggleSidebar}>
-          <FontAwesomeIcon icon={faBars} />
+          Project logo
         </button>
         <div class="header_img">
           <button className="logout" onClick={signOut}>

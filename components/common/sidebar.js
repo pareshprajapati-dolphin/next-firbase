@@ -7,6 +7,8 @@ import {
   faList,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import UserImage from "../../public/images/userimage.jpg";
 
 export default function Sidebar({ isOpen, toggle }) {
   return (
@@ -15,7 +17,13 @@ export default function Sidebar({ isOpen, toggle }) {
         <nav className="nav">
           <div>
             <div className="nav_logo">
-              <span className="nav_logo-name">Next js</span>
+              <Image
+                src={UserImage}
+                width={50}
+                height={50}
+                className="shadow-lg rounded-full align-middle border-none"
+              />
+              <span className="nav_logo-name">User Name</span>
               <FontAwesomeIcon
                 className="menu-close-icon"
                 icon={faClose}

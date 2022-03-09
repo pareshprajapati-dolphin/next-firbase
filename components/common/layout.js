@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Header from "./header";
 import Sidebar from "./sidebar";
+import Footer from "./footer";
 
 export default function Layout({ children }) {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
@@ -18,15 +19,14 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <>
-        <div className="App wrapper">
-          <Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
-          <div className="content">
-            <Header toggleSidebar={toggleSidebar} />
-            <div>{children}</div>
-          </div>
+      <Header toggleSidebar={toggleSidebar} />
+      <div className="App wrapper">
+        <Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
+        <div className="content bg-light">
+          <div className="p-2">{children}</div>
+          <Footer />
         </div>
-      </>
+      </div>
     </>
   );
 }
