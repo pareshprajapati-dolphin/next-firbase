@@ -11,12 +11,13 @@ export default function userDetail({ data }) {
   return (
     <>
       <Layout>
-        <div className="mr-3 text-right">
+        <div className="mr-3 mt-2 d-flex justify-content-between">
+          <h1 className="fs-5 mt-2">User Details Page</h1>
           <button
             className="btn btn-primary"
             type="button"
             onClick={() => {
-              router.push("/user/Add");
+              router.push("/user/adduser");
             }}
           >
             Add User

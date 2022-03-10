@@ -7,16 +7,14 @@ import Footer from "./footer";
 export default function Layout({ children }) {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
-
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    if (localStorage.getItem("user")) setUser(localStorage.getItem("user"));
+    const useData = localStorage.getItem("user");
+    setUser(useData);
   }, []);
 
-  // only show nav when logged in
   if (!user) return null;
-
   return (
     <>
       <Header toggleSidebar={toggleSidebar} />

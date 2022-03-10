@@ -1,10 +1,10 @@
 // import TodoList from "../components/todo-list";
-import Head from "next/head";
+
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // import { app, database } from "../components/config/firebase";
 // import { addDoc, collection, getDocs } from "firebase/firestore";
-import { useForm } from "react-hook-form";
+
 import Layout from "../components/common/layout";
 import TodoList from "../components/todo-list";
 

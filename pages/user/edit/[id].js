@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import Layout from "../../../components/layout";
+import Layout from "../../../components/common/layout";
 import styles from "../../login/login.module.css";
 
 const EditUser = ({ data }) => {

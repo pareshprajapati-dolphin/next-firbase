@@ -188,14 +188,4 @@ a {
   .content.is-open {
     margin-left: 100%;
   }
-
-  .sidebar-is-open {
-    right: 30%;
-    left: 0;
-    width: calc(68px + 156px);
-  }
-
-  .sidebar {
-    width: 0px;
-  }
 }

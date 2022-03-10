@@ -3,8 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { RouteGuard } from "../components/routerGuard";
 import "../styles/globals.css";
 import useFullPageLoader from "../hooks/useFullPageLoader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Layout from "../components/common/layout";
 
 function App({ Component, pageProps }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
@@ -28,6 +29,7 @@ function App({ Component, pageProps }) {
       <Head>
         <title>Next.js -Basic Authentication Example</title>
       </Head>
+
       <RouteGuard>
         <Component {...pageProps} />
       </RouteGuard>

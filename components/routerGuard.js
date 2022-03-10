@@ -18,9 +18,7 @@ function RouteGuard({ children }) {
     const path = url.split("?")[0];
     if (!localStorage.getItem("user") && !publicPaths.includes(path)) {
       setAuthorized(false);
-      if (path === "/login") {
-        router.push("/login");
-      } else router.push("/register");
+      router.push("/login");
     } else {
       setAuthorized(true);
     }
