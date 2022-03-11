@@ -3,9 +3,11 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Layout from "../../../components/common/layout";
 import styles from "../../login/login.module.css";
+import Head from "next/head";
 
 const EditUser = ({ data }) => {
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -26,6 +28,13 @@ const EditUser = ({ data }) => {
 
   return (
     <>
+      <Head>
+        <title>{`Basic Authentication Example | user${router.query.id}`}</title>
+        <meta
+          name="description"
+          content="Meta description for the userDetails page"
+        />
+      </Head>
       <Layout>
         <div className="container mt-3">
           <form onSubmit={handleSubmit(onUpdate)}>

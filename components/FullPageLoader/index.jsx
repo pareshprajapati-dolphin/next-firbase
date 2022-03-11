@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import Spinner from "../../public/images/spinner.gif";
 
 const FullPageLoader = () => {

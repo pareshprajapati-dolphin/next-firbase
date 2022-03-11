@@ -7,7 +7,9 @@ import { useRouter } from "next/router";
 
 import Layout from "../components/common/layout";
 import TodoList from "../components/todo-list";
+import Head from "next/head";
 
+Home.title = "Home";
 export default function Home(props) {
   const [points, setPonits] = useState("");
   const [component, setComponet] = useState(false);
@@ -48,6 +50,10 @@ export default function Home(props) {
 
   return (
     <>
+      <Head>
+        <title> Basic Authentication Example | Home page</title>
+        <meta name="description" content="Meta description for the home page" />
+      </Head>
       <Layout>
         <div className="container-fluid">
           <h1>Hi this the home page </h1>

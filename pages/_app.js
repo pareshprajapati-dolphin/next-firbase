@@ -5,7 +5,6 @@ import "../styles/globals.css";
 import useFullPageLoader from "../hooks/useFullPageLoader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "../components/common/layout";
 
 function App({ Component, pageProps }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
@@ -26,9 +25,20 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <title>Next.js -Basic Authentication Example</title>
-      </Head>
+      {/* <Head>
+        <title>`${}Basic Authentication Example`</title>
+      </Head> */}
+
+      {/* <Head>
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="titla, meta, nextjs" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <Head>
+        <title>{`${Component.title} My page title`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="page title" />
+        <meta property="og:title" content={`${Component.title} page`} /> 
+      </Head> */}
 
       <RouteGuard>
         <Component {...pageProps} />

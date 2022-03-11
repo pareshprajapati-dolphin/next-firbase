@@ -4,12 +4,21 @@ import Layout from "../../components/common/layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
+// userDetail.title = "userDetails";
 export default function userDetail({ data }) {
   const router = useRouter();
 
   return (
     <>
+      <Head>
+        <title>Basic Authentication Example | userDtails </title>
+        <meta
+          name="description"
+          content="Meta description for the userDetails page"
+        />
+      </Head>
       <Layout>
         <div className="mr-3 mt-2 d-flex justify-content-between">
           <h1 className="fs-5 mt-2">User Details Page</h1>
