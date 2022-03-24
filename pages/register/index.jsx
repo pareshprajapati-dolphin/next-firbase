@@ -66,10 +66,10 @@ export default function Register() {
   return (
     <>
       <div
-        className="d-flex justify-content-center align-items-center text-light"
+        className="d-flex justify-content-center align-items-center text-light login-box"
         style={{ height: "100vh" }}
       >
-        <div className="col-sm-6 col-md-4 col-lg-3 login-box">
+        <div className="col-sm-6 col-md-4 col-lg-3 login">
           <div className="p-2 d-flex align-items-center justify-content-center ">
             <h5>Create new Account </h5>
           </div>

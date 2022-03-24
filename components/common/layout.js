@@ -21,7 +21,7 @@ export default function Layout({ children }) {
       <div className="App wrapper">
         <Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
         <div className="content bg-light">
-          <div className="p-2">{children}</div>
+          {children}
           <Footer />
         </div>
       </div>

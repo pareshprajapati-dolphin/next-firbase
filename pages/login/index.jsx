@@ -54,22 +54,23 @@ export default function Login() {
   return (
     <>
       <div
-        className="d-flex justify-content-center align-items-center text-light"
+        className="d-flex justify-content-center align-items-center text-light login-box "
         style={{ height: "100vh" }}
       >
-        <div className="col-sm-6 col-md-4 col-lg-3 login-box">
+        <div className="col-sm-6 col-md-4 col-lg-3 login">
           <div className="d-flex align-items-center pt-3 justify-content-center ">
             <h5>Login </h5>
           </div>
           <hr />
           <div className="p-3 px-4 py-4">
             <form onSubmit={handleSubmit(LoginData)}>
-              <div class="form-group mb-3">
-                <label htmlFor="InputEmail" className="form-label">
-                  Email or Phone
-                </label>
+              <label htmlFor="InputEmail" className="form-label">
+                Email or Phone
+              </label>
+              <div className="input-text">
                 <input
-                  className="form-control"
+                  type="text"
+                  className={styles.inputText}
                   {...register("email", {
                     required: true,
                     pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -84,31 +85,30 @@ export default function Login() {
                   <span className={styles.error}>Invalid Email</span>
                 )}
               </div>
-              <div className="form-group mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  className="form-control"
-                  type={passwordShow ? "text" : "password"}
-                  {...register("password", {
-                    required: true,
-                  })}
-                  placeholder="password"
-                />
-                <span className={styles.icon} onClick={ShowPassword}>
-                  {passwordShow ? (
-                    <FontAwesomeIcon icon={faEye} />
-                  ) : (
-                    <FontAwesomeIcon icon={faEyeSlash} />
-                  )}
-                </span>
-                {errors.password && (
-                  <span className={styles.error}>password is required</span>
-                )}
-              </div>
 
-              <button className="btn btn-primary btn-block w-100">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                className={styles.inputText}
+                type={passwordShow ? "text" : "password"}
+                {...register("password", {
+                  required: true,
+                })}
+                placeholder="password"
+              />
+              <span className={styles.icon} onClick={ShowPassword}>
+                {passwordShow ? (
+                  <FontAwesomeIcon icon={faEye} />
+                ) : (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                )}
+              </span>
+              {errors.password && (
+                <span className={styles.error}>password is required</span>
+              )}
+
+              <button className="btn btn-primary btn-block w-100 mt-3">
                 Continue
               </button>
               <div className="mt-2 text-end">

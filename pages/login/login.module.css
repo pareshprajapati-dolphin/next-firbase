@@ -26,3 +26,12 @@
 .forgot:hover {
   color: #fff;
 }
+.inputText {
+  height: 40px;
+  width: 100%;
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #b9c7da;
+  padding: 0 10px;
+  box-sizing: border-box;
+}

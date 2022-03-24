@@ -17,10 +17,11 @@ export default function Header({ toggleSidebar }) {
         <button className="header-toogle" onClick={toggleSidebar}>
           Project logo
         </button>
-        <div class="header_img">
-          <button className="logout" onClick={signOut}>
-            <FontAwesomeIcon icon={faPowerOff} />
-          </button>
+        <div classname="header_img">
+          <p style={{ margin: "7px 0px" }}>
+            Member Points :
+            <span style={{ margin: "0px 5px", color: "#c7883e" }}>3000</span>
+          </p>
         </div>
       </div>
     </>

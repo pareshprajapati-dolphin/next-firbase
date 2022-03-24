@@ -69,11 +69,33 @@ a {
 }
 
 .nav_logo {
-  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  padding: 10px;
 }
+
+.nav_logo > .image > img {
+  width: 100%;
+  max-width: 45px;
+  height: auto;
+}
+
+.pull-left {
+  float: left !important;
+}
+.image-cricle {
+  border-radius: 50%;
+}
+
+.nav_logo > .info {
+  padding: 5px 5px 5px 15px;
+  line-height: 1;
+  position: absolute;
+  left: 55px;
+}
+
 .nav_link {
   position: relative;
-
   margin-bottom: 1.5rem;
   transition: 0.3s;
 }
@@ -104,11 +126,23 @@ a {
 .nav_link:hover {
   background: #afa5d9;
 }
+.nav_link:active {
+  background: #795dec;
+}
 
-.active {
+.active a {
+  background-color: red;
+  color: #fff;
+}
+
+.menu-close-icon {
+  visibility: hidden;
+}
+
+/* .active {
   color: #fafafa;
   text-decoration: #fafafa;
-}
+} */
 .nav_list {
   padding: 0px;
 }
@@ -122,7 +156,7 @@ a {
   height: calc(100%- 2rem);
   width: calc(68px + 156px);
   transition: all 0.5s;
-  background-color: #141c28;
+  background-color: #705608;
 }
 
 .menu-close-icon {
@@ -137,11 +171,19 @@ a {
   background-color: #f7f6fb;
 }
 
+.lines {
+  background-color: #eeeff6;
+  width: 206px;
+  height: 2px;
+}
 .login-box {
-  background-color: azure;
   background: transparent;
   background-image: url("https://images.pexels.com/photos/5775309/pexels-photo-5775309.jpeg?cs=srgb&dl=pexels-disha-sheta-5775309.jpg&fm=jpg");
   background-size: cover;
+}
+.login {
+  background: #7e6312;
+  border-radius: 25px;
 }
 .fp-container {
   position: absolute;
@@ -160,6 +202,110 @@ a {
   z-index: 1000;
   align-self: center;
   position: absolute;
+}
+
+.roundedCustom {
+  border-radius: 0.7rem !important;
+}
+
+/* ///// points -----// */
+.points {
+  width: 100%;
+  font-size: larger;
+  font-weight: bold;
+  border: none !important;
+}
+.Pointstable {
+  width: 50%;
+  border-radius: 10px;
+}
+.linetage {
+  width: 100%;
+  height: 2px;
+  margin: 9px 0px;
+  border: 1px solid #8189bd;
+}
+
+.topupPoint {
+  background: white;
+  /* width: 50%; */
+  border-radius: 18px;
+  padding: 0px 5px;
+}
+
+/* ------ payment method card csss ------ */
+.paymentDetail {
+  margin: 0px 20px 20px 20px;
+  text-align: start;
+}
+.right-side {
+  width: 100%;
+  background-color: #fff;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.right-side h3 {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.input-text {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.inputText {
+  height: 40px;
+  width: 100%;
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #b9c7da;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.input-text span {
+  position: absolute;
+  left: 10px;
+  top: -13px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.input-div {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-div .input-text {
+  width: 50%;
+}
+
+.button {
+  margin: 30px 0px;
+  float: right;
+}
+.clickpay {
+  height: 40px;
+  width: 120px;
+  border-color: #705608;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.clickpaynext {
+  margin-left: 5px;
+  height: 40px;
+  width: 120px;
+
+  background-color: #705608;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
 @media (max-width: 575.99px) {
@@ -182,10 +328,16 @@ a {
   .sidebar {
     width: 0px;
   }
+  .topupPoint {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) and (min-width: 576px) {
   .content.is-open {
     margin-left: 100%;
+  }
+  .topupPoint {
+    width: 100%;
   }
 }
