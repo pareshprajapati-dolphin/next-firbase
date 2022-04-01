@@ -28,7 +28,7 @@ export default function Home(props) {
         {topupPoints ? (
           <TopupPoints setTopupPoints={setTopupPoints} />
         ) : showTrans ? (
-          <TransctionHistory />
+          <TransctionHistory setShowTrans={setShowTrans} />
         ) : (
           <>
             <div className="container">
@@ -46,7 +46,7 @@ export default function Home(props) {
                 </button>
               </div>
             </div>
-            <div className="container ">
+            <div className="container">
               <div className="row mt-3">
                 <div className="col-sm-12 col-md-6 col-lg-6 col-xl-5">
                   <h3>Points Allocation</h3>

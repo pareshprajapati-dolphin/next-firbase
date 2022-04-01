@@ -13,7 +13,7 @@ export default function Header({ toggleSidebar }) {
 
   return (
     <>
-      <div className="navbar shadow-sm bg-white rounded" expand="md">
+      <div className="navbar shadow bg-white " expand="md">
         <button className="header-toogle" onClick={toggleSidebar}>
           Project logo
         </button>

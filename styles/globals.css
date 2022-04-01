@@ -129,11 +129,11 @@ a {
 .nav_link:active {
   background: #795dec;
 }
-
+/* 
 .active a {
   background-color: red;
   color: #fff;
-}
+} */
 
 .menu-close-icon {
   visibility: hidden;
@@ -300,7 +300,6 @@ a {
   margin-left: 5px;
   height: 40px;
   width: 120px;
-
   background-color: #705608;
   border-radius: 10px;
   font-size: 12px;
@@ -308,6 +307,24 @@ a {
   transition: all 0.5s;
 }
 
+/* ---- transtion history ----- */
+
+.label {
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
 @media (max-width: 575.99px) {
   .content.is-open {
     margin-left: 100%;
