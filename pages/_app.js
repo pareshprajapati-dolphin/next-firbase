@@ -5,6 +5,8 @@ import "../styles/globals.css";
 import useFullPageLoader from "../hooks/useFullPageLoader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { store } from "../store/store";
+import { Provider } from "react-redux";
 
 function App({ Component, pageProps }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
@@ -21,7 +23,7 @@ function App({ Component, pageProps }) {
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
     router.events.on("routeChangeError", handleComplete);
-  }, [router]);
+  }, [router, showLoader, hideLoader]);
 
   return (
     <>
@@ -40,10 +42,9 @@ function App({ Component, pageProps }) {
         <meta property="og:title" content={`${Component.title} page`} /> 
       </Head> */}
 
-      <RouteGuard>
+      <Provider store={store}>
         <Component {...pageProps} />
-      </RouteGuard>
-
+      </Provider>
       {loader}
     </>
   );

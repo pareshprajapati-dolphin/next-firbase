@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 // userDetail.title = "userDetails";
-export default function userDetail({ data }) {
+export default function UserDetail({ data }) {
   const router = useRouter();
 
   return (

@@ -41,7 +41,7 @@ export default function TransctionHistory({ setShowTrans }) {
     };
 
     getData();
-  }, []);
+  }, [showLoader, hideLoader]);
 
   const subData = [
     {
@@ -202,8 +202,8 @@ export default function TransctionHistory({ setShowTrans }) {
                   className="w-50 rounded-lg f-50"
                   onChange={(e) => setPageLimit(e.target.value)}
                 >
-                  {limit.map((num) => (
-                    <option>{num}</option>
+                  {limit.map((num, key) => (
+                    <option key={key}>{num}</option>
                   ))}
                 </select>
               </div>

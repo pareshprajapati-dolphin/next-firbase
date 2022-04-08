@@ -5,7 +5,7 @@ export default function TopupPoints({ setTopupPoints }) {
   const [points, setPonits] = useState("");
   const [show, setShow] = useState(false);
 
-  const button_Data = [
+  const points_Data = [
     {
       name: "100 pts",
       value: "100",
@@ -32,13 +32,10 @@ export default function TopupPoints({ setTopupPoints }) {
     },
   ];
 
-  const handleClick = useCallback(
-    (e, item) => {
-      e.preventDefault();
-      setPonits(item.value);
-    },
-    [points]
-  );
+  const handleClick = useCallback((e, item) => {
+    e.preventDefault();
+    setPonits(item.value);
+  }, []);
 
   return (
     <>
@@ -66,7 +63,7 @@ export default function TopupPoints({ setTopupPoints }) {
             </span>
 
             <div className="row row-cols-3 mt-1 px-2">
-              {button_Data.map((item, id) => (
+              {points_Data.map((item, id) => (
                 <div className="col py-3 card-hover" key={id}>
                   <button
                     className="btn btn-outline-secondary mb-1 form-control text-center px-2 py-3 roundedCustom h-100 shadow p-1"

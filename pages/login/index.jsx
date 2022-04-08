@@ -8,10 +8,13 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
+import { signIn } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const router = useRouter();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -42,6 +45,7 @@ export default function Login() {
         if (response.status) {
           hideLoader();
           console.log(response);
+          dispatch(signIn(response.data.token));
           localStorage.setItem("user", JSON.stringify(response.data));
           router.push("/");
         } else {
@@ -112,7 +116,7 @@ export default function Login() {
                 Continue
               </button>
               <div className="mt-2 text-end">
-                <Link href="/login/forgotPassword">
+                <Link href="/ForgotPassword">
                   <a className={styles.forgot}>Forgot Password</a>
                 </Link>
               </div>
