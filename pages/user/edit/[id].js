@@ -20,7 +20,7 @@ const EditUser = ({ data }) => {
     setValue("username", data.username);
     setValue("email", data.email);
     setValue("phone", data.phone);
-  }, [data]);
+  }, [data, setValue]);
 
   const onUpdate = (data) => {
     console.log(data);
@@ -39,7 +39,7 @@ const EditUser = ({ data }) => {
         <div className="container mt-3">
           <form onSubmit={handleSubmit(onUpdate)}>
             <div className="form-group mb-3">
-              <label for="firstname" className="form-label">
+              <label htmlFor="firstname" className="form-label">
                 FirstName
               </label>
               <input
@@ -54,7 +54,7 @@ const EditUser = ({ data }) => {
               </div>
             </div>
             <div className="form-group mb-3">
-              <label for="username" className="form-label">
+              <label htmlFor="username" className="form-label">
                 UserName
               </label>
               <input
@@ -71,7 +71,7 @@ const EditUser = ({ data }) => {
               </div>
             </div>
             <div className="form-group mb-3">
-              <label for="email" className="form-label">
+              <label htmlFor="email" className="form-label">
                 Email Address
               </label>
               <input
@@ -88,7 +88,7 @@ const EditUser = ({ data }) => {
               </div>
             </div>
             <div className="form-group">
-              <label for="phonenumber" className="form-label">
+              <label htmlFor="phonenumber" className="form-label">
                 Phone Number
               </label>
               <input
@@ -127,7 +127,6 @@ export async function getServerSideProps(context) {
   const req = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   const data = await req.json();
 
-  // console.log(data);
   return {
     props: {
       data,

@@ -9,13 +9,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import { signIn } from "../../store/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
   const router = useRouter();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const dispatch = useDispatch();
 
+  const isLoggedIn = useSelector((state) => state.user.value);
   const {
     register,
     handleSubmit,

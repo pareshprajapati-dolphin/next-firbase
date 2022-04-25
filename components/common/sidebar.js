@@ -22,7 +22,6 @@ import { useRouter } from "next/router";
 
 export default function Sidebar({ isOpen, toggle }) {
   const router = useRouter();
-
   const handleClick = () => {
     localStorage.removeItem("user");
     router.push("/login");
@@ -54,7 +53,7 @@ export default function Sidebar({ isOpen, toggle }) {
             <ul className="nav_list">
               <li className="nav_link">
                 <Link href="/">
-                  <a>
+                  <a className={router.pathname === "/" ? "active" : " null"}>
                     <FontAwesomeIcon className="nav_icon" icon={faUserCircle} />
                     Account
                   </a>
@@ -62,7 +61,9 @@ export default function Sidebar({ isOpen, toggle }) {
               </li>
               <li className="nav_link">
                 <Link href="/user">
-                  <a>
+                  <a
+                    className={router.pathname === "/user" ? "active" : " null"}
+                  >
                     <FontAwesomeIcon className="nav_icon" icon={faDollarSign} />
                     Manage Point
                   </a>

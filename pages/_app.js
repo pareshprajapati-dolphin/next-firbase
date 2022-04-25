@@ -6,7 +6,8 @@ import useFullPageLoader from "../hooks/useFullPageLoader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { store } from "../store/store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { signOut } from "../store/userSlice";
 
 function App({ Component, pageProps }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();

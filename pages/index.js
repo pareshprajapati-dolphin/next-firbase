@@ -62,8 +62,8 @@ export default function Home(props) {
                       <span style={{ float: "right", color: "#c7883e" }}>
                         1000
                       </span>
-                      <hr className="linetage" />
                     </p>
+                    <hr className="linetage" />
                     <p
                       style={{
                         padding: "10px",
@@ -75,8 +75,8 @@ export default function Home(props) {
                       <span style={{ float: "right", color: "#c7883e" }}>
                         2000
                       </span>
-                      <hr className="linetage" />
                     </p>
+                    <hr className="linetage" />
 
                     <p
                       style={{
@@ -121,8 +121,8 @@ export default function Home(props) {
                         style={{ marginLeft: "5px" }}
                       />
                     </span>
-                    <hr className="linetage" />
                   </p>
+                  <hr className="linetage" />
                   <p
                     style={{
                       padding: "10px",
@@ -144,8 +144,8 @@ export default function Home(props) {
                         style={{ marginLeft: "7px" }}
                       />
                     </span>
-                    <hr className="linetage" />
                   </p>
+                  <hr className="linetage" />
 
                   <p
                     style={{

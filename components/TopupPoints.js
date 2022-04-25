@@ -1,9 +1,12 @@
 import React, { useState, useCallback } from "react";
 import TopupPayment from "./topup-payment";
+import { pointsData } from "../store/userSlice";
+import { useDispatch } from "react-redux";
 
 export default function TopupPoints({ setTopupPoints }) {
   const [points, setPonits] = useState("");
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
 
   const points_Data = [
     {
@@ -32,10 +35,14 @@ export default function TopupPoints({ setTopupPoints }) {
     },
   ];
 
-  const handleClick = useCallback((e, item) => {
-    e.preventDefault();
-    setPonits(item.value);
-  }, []);
+  const handleClick = useCallback(
+    (e, item) => {
+      e.preventDefault();
+      setPonits(item.value);
+      dispatch(pointsData(item.value));
+    },
+    [dispatch]
+  );
 
   return (
     <>

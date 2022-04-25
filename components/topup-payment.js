@@ -1,11 +1,51 @@
 import React, { useState } from "react";
 import TopupPointsHeader from "./common/TopupPointsHeader";
 import OrderConform from "./order-conform";
+import { findDebitCardType, stripeCardExpirValidation } from "./utils";
 
 export default function TopupPayment({ points, setShow, setTopupPoints }) {
   const [paymentDatils, setPaymentDatils] = useState(false);
   const [orderConfirm, setorderConfirm] = useState(false);
+  const [cardType, setCardType] = useState();
 
+  const [state, dispatch] = useState({
+    card: "",
+    expiry: "",
+    securityCode: "",
+  });
+
+  const handleInputData = (e) => {
+    dispatch({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+    if (e.target.name === "card" && cardType)
+      handleValidations(e.target.name, e.target.value);
+  };
+
+  const handleBlur = (e) => {
+    console.log(e.target.name, e.target.value);
+    handleValidations(e.target.name, e.target.value);
+  };
+
+  const handleValidations = (type, value) => {
+    console.log(type);
+    let errorText;
+    switch (type) {
+      case "card":
+        setCardType(findDebitCardType(value));
+        break;
+      // case "expiry":
+      //   errorText =
+      //     value === "" ? "Required" : stripeCardExpirValidation(value);
+      //   break;
+      case "securityCode":
+        errorText = value === "" ? "Required" : minLength(3)(value);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <>
       {paymentDatils ? (
@@ -91,33 +131,40 @@ export default function TopupPayment({ points, setShow, setTopupPoints }) {
                       <input
                         className="inputText"
                         type="text"
-                        id="user_card_number_input"
-                        placeholder="Card Number*"
-                        onkeyup="userCardNumber(this.value)"
+                        name="card"
                         data-slots="0"
+                        maxLength={16}
                         data-accept="\d"
-                        require
+                        onChange={handleInputData}
+                        required
                       />
+                      <span>{cardType}</span>
                     </div>
                     <div className="input-text">
                       <input
                         className="inputText"
                         type="text"
-                        onkeyup="usercardcvv(this.value)"
-                        placeholder="Expiration Date*"
-                        data-slots="MY"
-                        require
+                        name="expiry"
+                        data-slots="0"
+                        data-accept="\d"
+                        onChange={handleInputData}
+                        onBlur={handleBlur}
+                        required
                       />
                     </div>
                     <div className="input-text ">
                       <input
                         className="inputText"
                         type="text"
-                        placeholder="CVV*"
+                        id="user_card_number_input"
+                        placeholder="Card Number*"
+                        name="securityCode"
                         data-slots="0"
+                        maxLength={3}
                         data-accept="\d"
-                        size="3"
-                        require
+                        onChange={handleInputData}
+                        onBlur={handleBlur}
+                        required
                       />
                     </div>
                     <div className="button">

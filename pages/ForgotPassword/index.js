@@ -12,32 +12,8 @@ export default function ForgotPassword() {
     formState: { errors },
   } = useForm({});
 
-  const LoginData = async (data) => {
-    showLoader();
-
-    await fetch(
-      "https://dws-api-client.demoproject.info/dws-api-client-back/public/api/signin",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((response) => {
-        if (response.status) {
-          hideLoader();
-          console.log(response);
-          dispatch(signIn(response.data.token));
-          localStorage.setItem("user", JSON.stringify(response.data));
-          router.push("/");
-        } else {
-          hideLoader();
-          console.error("Error:", response.status);
-        }
-      });
+  const ResetPassword = (data) => {
+    console.log("__ pp test of the reset password ");
   };
 
   return (
@@ -52,7 +28,7 @@ export default function ForgotPassword() {
           </div>
           <hr />
           <div className="p-3 px-4 py-4">
-            <form onSubmit={handleSubmit(LoginData)}>
+            <form onSubmit={handleSubmit(ResetPassword)}>
               <label htmlFor="InputEmail" className="form-label">
                 Email Address
               </label>

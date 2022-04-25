@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect, useCallback } from "react";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
-import Pagination from "../Table/Pagination";
+import Pagination from "../../components/Table/Pagination";
 
 export default function TransctionHistory({ setShowTrans }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
@@ -31,18 +31,6 @@ export default function TransctionHistory({ setShowTrans }) {
     {},
   ];
 
-  useEffect(() => {
-    const getData = async () => {
-      showLoader();
-      const req = await fetch(`https://jsonplaceholder.typicode.com/users`);
-      const data = await req.json();
-      setUser(data);
-      hideLoader();
-    };
-
-    getData();
-  }, [showLoader, hideLoader]);
-
   const subData = [
     {
       name: "Hotel",
@@ -60,6 +48,18 @@ export default function TransctionHistory({ setShowTrans }) {
       status: "procesing",
     },
   ];
+
+  useEffect(() => {
+    const getData = async () => {
+      showLoader();
+      const req = await fetch(`https://jsonplaceholder.typicode.com/users`);
+      const data = await req.json();
+      setUser(data);
+      hideLoader();
+    };
+
+    getData();
+  }, [showLoader, hideLoader]);
 
   const handleChangePageNumber = useCallback(
     (num) => {
@@ -180,6 +180,7 @@ export default function TransctionHistory({ setShowTrans }) {
                                 [index]: !test[index],
                               }))
                             }
+                            cursor="pointers"
                           />
                         </td>
                       </tr>
@@ -215,13 +216,13 @@ export default function TransctionHistory({ setShowTrans }) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const req = await fetch("https://jsonplaceholder.typicode.com/users");
-//   const data = await req.json();
+export async function getServerSideProps() {
+  const req = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await req.json();
 
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+  return {
+    props: {
+      data,
+    },
+  };
+}

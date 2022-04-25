@@ -103,6 +103,10 @@ a {
   color: #fafafa;
   text-decoration: none;
 }
+.nav_link > a.active {
+  color: #4723d9;
+  text-decoration: #fafafa;
+}
 
 .nav_logo-icon {
   font-size: 1.25rem;
@@ -139,10 +143,7 @@ a {
   visibility: hidden;
 }
 
-/* .active {
-  color: #fafafa;
-  text-decoration: #fafafa;
-} */
+
 .nav_list {
   padding: 0px;
 }
@@ -162,7 +163,7 @@ a {
 .menu-close-icon {
   visibility: hidden;
 }
-.active::before {
+.active::after {
   content: "";
   position: absolute;
   left: 0;
